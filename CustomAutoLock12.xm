@@ -22,6 +22,7 @@ static BOOL isANormalInterval(double input)
 			return NO;
 	}
 }
+
 static void loadPrefs()
 {
 	static NSMutableDictionary *settings;
@@ -38,7 +39,7 @@ static void loadPrefs()
 
 	enabled = [settings objectForKey:@"enabled"] ? [[settings objectForKey:@"enabled"] boolValue] : YES;
 	minutes = [settings objectForKey:@"minutesDuration"] ? [[settings objectForKey:@"minutesDuration"] doubleValue] : 0;
-	seconds = [settings objectForKey:@"secondsDuration"] ? [[settings objectForKey:@"secondsDuration"] doubleValue] : 3;
+	seconds = [settings objectForKey:@"secondsDuration"] ? [[settings objectForKey:@"secondsDuration"] doubleValue] : 0;
 }
 
 %group Tweak
