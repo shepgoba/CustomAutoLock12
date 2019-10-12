@@ -1,7 +1,9 @@
 #import <substrate.h>
+
 static BOOL enabled;
 static double minutes;
 static double seconds;
+
 static BOOL isANormalInterval(double input)
 {
 	// These are all seconds
