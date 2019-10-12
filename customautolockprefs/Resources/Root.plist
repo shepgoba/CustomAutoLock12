@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Settings</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.shepgoba.customautolockprefs</string>
+			<key>key</key>
+			<string>enabled</string>
+			<key>label</key>
+			<string>Enable</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>cell</key>						
+			<string>PSEditTextCell</string>
+			<key>default</key>					
+			<true/>
+			<key>defaults</key>					
+			<string>com.shepgoba.customautolockprefs</string>
+			<key>placeholder</key> 				
+			<string>10</string>
+			<key>key</key>						
+			<string>minutesDuration</string>
+			<key>label</key>					
+			<string>Minutes: </string>
+		</dict>
+		<dict>
+			<key>cell</key>						
+			<string>PSEditTextCell</string>
+			<key>default</key>					
+			<true/>
+			<key>defaults</key>					
+			<string>com.shepgoba.customautolockprefs</string>
+			<key>placeholder</key> 				
+			<string>30</string>
+			<key>key</key>						
+			<string>secondsDuration</string>
+			<key>label</key>					
+			<string>Seconds: </string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>cell</key>						
+			<string>PSButtonCell</string>
+			<key>action</key>						
+			<string>respringDevice</string>
+			<key>label</key>					
+			<string>Respring (apply settings)</string>
+		</dict>
+		<dict>
+			<key>cell</key>						
+			<string>PSButtonCell</string>
+			<key>action</key>						
+			<string>openTwitter</string>
+			<key>label</key>					
+			<string>@shepgoba</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>CustomAutoLock</string>
+</dict>
+</plist>
