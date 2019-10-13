@@ -1,4 +1,5 @@
 #import <substrate.h>
+#import "CustomAutoLock12.h"
 
 static BOOL enabled;
 static double minutes;
@@ -10,14 +11,14 @@ static BOOL isANormalInterval(double input)
 	int intInput = input;
 	switch (intInput)
 	{
-		case 30:
-		case 60:
-		case 120:
-		case 180:
-		case 240:
-		case 300:
+		case 30: // 30 sec
+		case 60: // 1 min, etc
+		case 120: 
+		case 180: 
+		case 240: 
+		case 300: 
 			return YES;
-		break;
+			break;
 		default:
 			return NO;
 	}
@@ -25,7 +26,7 @@ static BOOL isANormalInterval(double input)
 
 static void loadPrefs()
 {
-	static NSMutableDictionary *settings;
+	NSMutableDictionary *settings;
 
 	CFArrayRef keyList = CFPreferencesCopyKeyList(CFSTR("com.shepgoba.customautolockprefs"), kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
 	if (keyList)
@@ -43,10 +44,20 @@ static void loadPrefs()
 }
 
 %group Tweak
+/*
+%hook SBIdleTimerGlobalCoordinator
+-(void)_setIdleTimerWithDescriptor:(id)arg1 forReason:(id)arg2 
+{
+	double totalTime = minutes * 60 + seconds;
+	if (totalTime != 0)
+		[(SBIdleTimerDescriptor *)arg1 setTotalInterval:totalTime];
+	%orig;
+}
+%end*/
 %hook SBIdleTimerDescriptor
 -(void)setTotalInterval:(double)arg1
 {
-	// Just to make sure we aren't hooking some random timer
+	// Just to make sure we aren't hooking some random timer, probably not necessary
 	if (isANormalInterval(arg1))
 	{
 		double totalTime = minutes * 60 + seconds;
@@ -64,7 +75,6 @@ static void loadPrefs()
 %ctor
 {
 	loadPrefs();
-	NSLog(@"totalTime: %f", minutes * 60 + seconds);
 	if (enabled)
 		%init(Tweak);
 }

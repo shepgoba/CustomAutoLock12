@@ -1,0 +1,10 @@
+Package: com.shepgoba.customautolock12
+Name: CustomAutoLock12
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Description: Custom auto lock on iOS 11+
+Maintainer: shepgoba
+Author: shepgoba
+Section: Tweaks
+Version: 1.0
+Installed-Size: 284
